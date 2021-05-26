@@ -18,6 +18,7 @@ for j in message:
     if len(matrix[ptr]) == cols:
         ptr+=1
 ptr=rows-1
+print('m:',matrix)
 for i in letters:
     res = i in (item for submatrix in matrix for item in submatrix)
     if res==False:
@@ -54,7 +55,7 @@ k_ind=0
 c_ind=0
 cipher = list(ciphertext)
 key_lst=sorted(k)
-
+print('k:',key_lst)
 #inserting the data columnwise
 for i in range(cols):
     p_ind = k.index(key_lst[k_ind])

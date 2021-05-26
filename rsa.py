@@ -15,7 +15,6 @@ def gcd(e,phi):
     return e
 
 def mulInv(e,phi):
-    e = e%phi
     for i in range(1,phi):
         if((e*i)%phi == 1):
             return i

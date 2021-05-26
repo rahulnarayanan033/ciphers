@@ -7,12 +7,14 @@ for i in range(rail):
     encrypt.append([])
     for j in range(len(plaintext)):
         encrypt[i].append(0)
+
+print('en:',encrypt)
 boolean = False
 i = 0
 for j in range(len(plaintext)):
     encrypt[i][j] = plaintext[j]
     #for going top and bottom
-    if(i==0) or (i==rail-1):  
+    if(i==0) or (i==rail-1):  #rail = 3
         boolean = not boolean
     if boolean:
         i = i + 1

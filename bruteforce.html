@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <script language="javascript" type="text/javascript">
+
+        function convert() {
+            message = document.getElementById('ct').value;
+			letters = 'abcdefghijklmnopqrstuvwxyz';
+			var arr=[]
+			for(var key=0 ; key<letters.length ; key++) {
+				translated=""
+				for(symbol in message) {
+					if(message.includes(message[symbol])) {
+						var num = letters.indexOf(message[symbol]);
+						num = num - key;
+						
+						if(num<0){
+							num = num + letters.length
+						}
+						translated = translated + letters[num];
+					}
+					else {
+						translated = translated + message[symbol];
+					}
+					
+				}
+				arr.push('#'+key+':'+translated+'\n')
+			}
+			document.getElementById('pt').value = arr;
+        }
+        
+    </script>
+</head>
+<center>
+
+    <body>
+        <h1>Arithmetic Operation</h1><br><br>
+        <hr>
+        <form>
+            CIpherText: <input type="text" id="ct" value=""> <br><br>
+
+            <input type="button" value="Convert" onclick="javascript:convert()"><br><br>
+            Result: <textarea type="text" id="pt" rows=5 col=5 value=""></textarea>
+        </form>
+    </body>
+</center>
+
+</html>

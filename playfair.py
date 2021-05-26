@@ -18,14 +18,15 @@ for i in range(5):
     matrix.append([])
 
 ptr=0
+print(matrix)
 
 #creating key matrix
 for j in key:
     res1 = j in (item for submatrix in matrix for item in submatrix)
     if res1 == False:
         matrix[ptr].append(j)
-        if len(matrix[ptr]) == 5:
-            ptr+=1
+    if len(matrix[ptr]) == 5:
+        ptr+=1
 for i in letters:
     res2 = i in (item for submatrix in matrix for item in submatrix)
     if len(matrix[ptr]) == 5:
@@ -50,7 +51,9 @@ for i in range(len(text)):
     if j==len(text)+1:
         break
     a=[(index, row.index(text[k])) for index, row in enumerate(matrix) if text[k] in row] #searhes for the character in matrix
+    print('a:',a)
     b=[(index, row.index(text[j])) for index, row in enumerate(matrix) if text[j] in row]
+    print('b:',b)
     a=list(a[0])
     b=list(b[0])
 
@@ -161,6 +164,3 @@ for i in range(len(text)):
     j=j+2
 
 print("The decrypted text is: ",decipher)
-
-
-

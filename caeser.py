@@ -1,20 +1,25 @@
-import string
-plainText =input("What is your plaintext? ")
-plaintext=plainText.lower() #FOR UPPER THE FORMULA CHANGES WITH 65
-print(plaintext)
+def caesar_encrypt(realText, step):
+        outText = []
+        cryptText = []
+        uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        for eachLetter in realText:
+                if eachLetter in uppercase:
+                        index = uppercase.index(eachLetter)
+                        crypting = (index + step) % 26
+                        cryptText.append(crypting)
+                        newLetter = uppercase[crypting]
+                        outText.append(newLetter)
+                elif eachLetter in lowercase:
+                        index = lowercase.index(eachLetter)
+                        crypting = (index + step) % 26
+                        cryptText.append(crypting)
+                        newLetter = lowercase[crypting]
+                        outText.append(newLetter)
+        return outText
 
-n=int(input("enter the shift: "))
-cipherText=""
-for i in plaintext:
-    if(ord(i)==32):
-        cipherText = cipherText + ' '
-    else:
-        cipherText=cipherText+chr((ord(i)-n-97)%26 + 97)
-plaintext=""
-
-for j in cipherText:
-    plaintext=plaintext+chr(ord(j)-n)
-
-
-print("Encryption=",cipherText)
-print("Decryption=",plainText)
+code = caesar_encrypt('ab55nm', 5)
+print()
+code = ''.join(code)
+print(code)
+print()

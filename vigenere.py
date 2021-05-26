@@ -1,6 +1,6 @@
 plaintext = input("What is your plain text?")
 keyword = input("Enter the keyword: ")
-letters = 'abcdefghijklmnopqrstuvwxyz'
+letters = 'abcdefghijklmnopqrstuvwxyz@.,?0123456789'
 
 plaintext = plaintext.lower()
 keyword = keyword.lower()
@@ -24,7 +24,7 @@ else:
     #encryption
     cipherText = ''
     for i in range(len(plaintext)):
-        res = (letters.index(plaintext[i]) + letters.index(keyword[i]))%26
+        res = (letters.index(plaintext[i]) + letters.index(keyword[i]))%40
         cipherText = cipherText + letters[res]
     print('Encrypted text: ',cipherText)
 
@@ -32,7 +32,7 @@ else:
     res=0
     text=''
     for i in range(len(cipherText)):
-        res = (letters.index(cipherText[i]) - letters.index(keyword[i]))%26
+        res = (letters.index(cipherText[i]) - letters.index(keyword[i]))%40
         text = text + letters[res]
     print('Decrypted text: ' , text)
 

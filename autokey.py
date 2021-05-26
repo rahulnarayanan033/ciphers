@@ -16,13 +16,14 @@ else:
     key=[]
     for i in autokey:
         key.append(i)
+    print('k:',key)
 
     n = len(plaintext) - len(key)
     for i in range(0 , n):
         key.append(plaintext[i])
 
     keystream = ''
-    keystream = keystream.join(key)
+    keystream = keystream.join(key) #converts it into string
     print('keystream is: ' , keystream)
 
     res=0
